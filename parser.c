@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:24:28 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/02/14 20:08:26 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/02/17 20:06:19 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,26 @@ if yes then do nothing and exit the program properly*/
 static void check_if_sorted(const char **tab)
 {
 	int i;
-	int num;
+	int is_sorted;
 	int j;
 
 	i = 0;
+	is_sorted = 1;
 	while (tab[i])
 	{
 		j = i + 1;
-		while (tab[j] && ft_atoi(tab[i]) < ft_atoi(tab[j]))
+		while (tab[j])
 		{
-			num = ft_atoi(tab[j]);
+			if (ft_atoi(tab[i]) > ft_atoi(tab[j]))
+			{
+				is_sorted = 0;
+				break;
+			}
 			j++;
 		}
 		i++;
 	}
-	if (num == ft_atoi(tab[i - 1]))
+	if (is_sorted == 1)
 		exit(0);
 }
 
@@ -95,5 +100,5 @@ void	parse_input(const char **tab)
 		ft_atoi(tab[i]);
 		i++;
 	}
-	//check_if_sorted(tab);
+	check_if_sorted(tab);
 }
