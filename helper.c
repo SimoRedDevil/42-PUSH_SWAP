@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:41 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/02/18 21:01:00 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/04 19:32:09 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,6 @@ void throw_error()
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
-}
-
-t_stack *min(t_stack *stack)
-{
-	t_stack *addr;
-	
-	addr = stack;
-	while (stack)
-	{
-		if (stack->num < addr->num)
-			addr = stack;
-		stack = stack->next;
-	}
-	return (addr);
-}
-
-t_stack *max(t_stack *stack)
-{
-	t_stack *addr;
-	
-	addr = stack;
-	while (stack)
-	{
-		if (stack->num > addr->num)
-			addr = stack;
-		stack = stack->next;
-	}
-	return (addr);
-}
-
-void re_index_stack(t_stack *stack)
-{
-	int index;
-	
-	index = 0;
-	while (stack)
-	{
-		stack->index = index++;
-		stack = stack->next;
-	}
 }
 
 void fill_stack_a(t_stack **stack_a, int num)
@@ -71,4 +31,57 @@ void fill_stack_a(t_stack **stack_a, int num)
 			tmp = tmp->next;
 		tmp->next = create_node(num);
 	}
+}
+
+t_stack *find_min_value(t_stack *stack)
+{
+	int min_index;
+	t_stack *min_val;
+
+	min_index = stack->index;
+	min_val = stack;
+	while (stack)
+	{
+		if (stack->index < min_index)
+		{
+			min_index = stack->index;
+			min_val = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_val);
+}
+
+t_stack *find_max_value(t_stack *stack)
+{
+	int max_index;
+	t_stack *max_val;
+
+	max_index = stack->index;
+	max_val = stack;
+	while (stack)
+	{
+		if (stack->index > max_index)
+		{
+			max_index = stack->index;
+			max_val = stack;
+		}
+		stack = stack->next;
+	}
+	return (max_val);
+}
+
+void free_this_shit(char **str, t_stack **stack)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		str[i] = NULL;
+		i++;
+	}
+	free(str);
+	list_clear(stack);
 }
