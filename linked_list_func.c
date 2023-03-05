@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:52:27 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/02/14 22:22:48 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:49:47 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,31 @@ t_stack *create_node(int num)
 	node->num = num;
 	node->next = NULL;
 	return (node);
+}
+
+int	list_size(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
+}
+
+void list_clear(t_stack **stack)
+{
+	t_stack *tmp;
+	
+	tmp = *stack;
+	while (tmp)
+	{
+		tmp = (*stack)->next;
+		(*stack)->next = NULL;
+		free(*stack);
+		*stack = tmp;
+	}
 }
