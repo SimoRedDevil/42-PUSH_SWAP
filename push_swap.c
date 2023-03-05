@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:55:39 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/02/19 18:31:54 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/05 14:02:52 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 static void start_sorting(int stack_size, t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_size == 1)
-		exit(1);
-	else if (stack_size == 2)
+	if (stack_size == 2)
 		sort_two_numbers(*stack_a);
 	else if (stack_size == 3)
 		sort_three_numbers(stack_a);
@@ -24,7 +22,9 @@ static void start_sorting(int stack_size, t_stack **stack_a, t_stack **stack_b)
 		sort_four_numbers(stack_a, stack_b);
 	else if (stack_size == 5)
 		sort_five_numbers(stack_a, stack_b);
-}	
+	else if (stack_size >= 6)
+		big_sort(stack_a, stack_b);
+}
 
 int	main(int argc, char **argv)
 {
@@ -45,11 +45,7 @@ int	main(int argc, char **argv)
 		fill_stack_a(&stack_a, ft_atoi(spl_args[i]));
 		i++;
 	}
-	re_index_stack(stack_a);
+	indexing_by_order(stack_a);
 	start_sorting(i, &stack_a, &stack_b);
-	// while (stack_a)
-	// {
-	// 	printf("%d --> %d\n", stack_a->num, stack_a->index);
-	// 	stack_a = stack_a->next;
-	// }
+	free_this_shit(spl_args, &stack_a);
 }
