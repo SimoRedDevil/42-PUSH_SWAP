@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:18:55 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/02/18 23:34:20 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/04 21:41:27 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,20 @@ void sort_three_numbers(t_stack **stack_a)
 
 void sort_four_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	int min_index;
-	
-	min_index = min(*stack_a)->index;
-	if (min_index == 1)
+	t_stack *min_val;
+	int min_val_pos;
+
+	min_val = find_min_value(*stack_a);
+	min_val_pos = get_position(*stack_a, min_val->index);
+	if (min_val_pos == 1)
 		rotate(stack_a, "ra");
-	else if (min_index > 1)
+	else if (min_val_pos == 2)
 	{
-		while ((*stack_a)->index != min_index)
-			reverse_rotate(stack_a, "rra");
+		reverse_rotate(stack_a, "rra");
+		reverse_rotate(stack_a, "rra");
 	}
+	else if (min_val_pos == 3)
+		reverse_rotate(stack_a, "rra");
 	push(stack_a, stack_b, "pb");
 	sort_three_numbers(stack_a);
 	push(stack_b, stack_a, "pa");
@@ -65,17 +69,26 @@ void sort_four_numbers(t_stack **stack_a, t_stack **stack_b)
 
 void sort_five_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	int min_index;
+	t_stack *min_val;
+	int min_val_pos;
 
-	min_index = min(*stack_a)->index;
-	if (min_index <= 2)
-		while ((*stack_a)->index != min_index)
-			rotate(stack_a, "ra");
-	else
-		while ((*stack_a)->index != min_index)
-			reverse_rotate(stack_a, "rra");
+	min_val = find_min_value(*stack_a);
+	min_val_pos = get_position(*stack_a, min_val->index);
+	if (min_val_pos == 1)
+		rotate(stack_a, "ra");
+	else if (min_val_pos == 2)
+	{
+		rotate(stack_a, "ra");
+		rotate(stack_a, "ra");
+	}
+	else if (min_val_pos == 3)
+	{
+		reverse_rotate(stack_a, "rra");
+		reverse_rotate(stack_a, "rra");
+	}
+	else if (min_val_pos == 4)
+		reverse_rotate(stack_a, "rra");
 	push(stack_a, stack_b, "pb");
-	re_index_stack(*stack_a);
 	sort_four_numbers(stack_a, stack_b);
 	push(stack_b, stack_a, "pa");
 }
