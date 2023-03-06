@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:56:07 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/05 14:02:57 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/05 21:53:05 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ void 	sort_two_numbers(t_stack *stack_a);
 void 	sort_three_numbers(t_stack **stack_a);
 void 	sort_four_numbers(t_stack **stack_a, t_stack **stack_b);
 void 	sort_five_numbers(t_stack **stack_a, t_stack **stack_b);
-void	big_sort(t_stack **stack_a, t_stack **stack_b);
+void 	big_sort(t_stack **stack_a, t_stack **stack_b, int stack_a_size);
 
 #endif
