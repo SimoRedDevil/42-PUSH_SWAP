@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:55:39 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/05 14:02:52 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/06 02:31:04 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void start_sorting(int stack_size, t_stack **stack_a, t_stack **stack_b)
 	else if (stack_size == 5)
 		sort_five_numbers(stack_a, stack_b);
 	else if (stack_size >= 6)
-		big_sort(stack_a, stack_b);
+		big_sort(stack_a, stack_b, stack_size);
 }
 
 int	main(int argc, char **argv)
