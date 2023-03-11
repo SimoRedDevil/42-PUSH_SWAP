@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 16:24:28 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 19:35:55 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/10 00:49:55 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
+/*This function check's if there is nothing after the sign,
+if true then throw an error.
+And check if there is a number before the sign, if true throw an error*/
 static void	check_minus_plus(const char *str)
 {
 	int	i;
@@ -30,6 +33,9 @@ static void	check_minus_plus(const char *str)
 	}
 }
 
+/*Check if the passed argument contains a character that isn't an digit,
+if true then throw an error
+PS: + and - will be skipped*/
 static void	check_numbers_only(const char *str)
 {
 	while (*str)
@@ -42,6 +48,8 @@ static void	check_numbers_only(const char *str)
 	}
 }
 
+/*This function check's if a number is duplicated,
+if true then throw an error*/
 static void	check_duplication(const char **tab, const char *num, int pos)
 {
 	int	i;
@@ -55,32 +63,7 @@ static void	check_duplication(const char **tab, const char *num, int pos)
 	}
 }
 
-static void	check_if_sorted(const char **tab)
-{
-	int	i;
-	int	is_sorted;
-	int	j;
-
-	i = 0;
-	is_sorted = 1;
-	while (tab[i])
-	{
-		j = i + 1;
-		while (tab[j])
-		{
-			if (ft_atoi(tab[i]) > ft_atoi(tab[j]))
-			{
-				is_sorted = 0;
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-	if (is_sorted == 1)
-		exit(0);
-}
-
+/*Check if the input is valid or not*/
 void	parse_input(const char **tab)
 {
 	int	i;
@@ -93,5 +76,4 @@ void	parse_input(const char **tab)
 		check_duplication(tab, tab[i], i);
 		i++;
 	}
-	check_if_sorted(tab);
 }

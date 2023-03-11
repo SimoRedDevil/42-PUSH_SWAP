@@ -6,13 +6,13 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:55:39 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/06 02:31:04 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:09:51 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void start_sorting(int stack_size, t_stack **stack_a, t_stack **stack_b)
+static void	start_sorting(int stack_size, t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_size == 2)
 		sort_two_numbers(*stack_a);
@@ -28,12 +28,12 @@ static void start_sorting(int stack_size, t_stack **stack_a, t_stack **stack_b)
 
 int	main(int argc, char **argv)
 {
-	char **spl_args;
-	t_stack *stack_a;
-	t_stack *stack_b;
-	int i;
+	char	**spl_args;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		i;
 
-	if (argc == 1)
+	if (argc < 2)
 		exit(0);
 	stack_a = NULL;
 	stack_b = NULL;
@@ -47,5 +47,5 @@ int	main(int argc, char **argv)
 	}
 	indexing_by_order(stack_a);
 	start_sorting(i, &stack_a, &stack_b);
-	free_this_shit(spl_args, &stack_a);
+	free_mem(spl_args, &stack_a, &stack_b);
 }

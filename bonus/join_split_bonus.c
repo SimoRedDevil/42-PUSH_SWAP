@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_join_split.c                                  :+:      :+:    :+:   */
+/*   join_split_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 20:51:00 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 19:29:21 by mel-yous         ###   ########.fr       */
+/*   Created: 2023/03/09 14:53:20 by mel-yous          #+#    #+#             */
+/*   Updated: 2023/03/10 15:32:47 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-/*This function join the first param with the second one,
-and inside this function i check if s2 is empty string
-or contains only spaces if yes throw error*/
 static char	*call_strjoin(char *s1, char *s2)
 {
 	int		i;

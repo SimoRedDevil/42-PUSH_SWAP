@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 23:28:20 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/02/12 18:32:21 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:32:01 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_atoi(const char *str)
 	unsigned long long	result;
 	int					i;
 	int					sign;
-	
+
 	result = 0;
 	sign = 1;
 	i = ft_skipper(str, &sign);

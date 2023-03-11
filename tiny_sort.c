@@ -6,50 +6,47 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:18:55 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/04 21:41:27 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/06 18:26:31 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_two_numbers(t_stack *stack_a)
+void	sort_two_numbers(t_stack *stack_a)
 {
 	if (stack_a->num > stack_a->next->num)
 		swap(stack_a, "sa");
 }
 
-void sort_three_numbers(t_stack **stack_a)
+void	sort_three_numbers(t_stack **stack_a)
 {
-	int median;
+	int	median;
 
 	median = (*stack_a)->next->num;
-	if (median > (*stack_a)->num &&
-		median > (*stack_a)->next->next->num)
+	if (median > (*stack_a)->num && median > (*stack_a)->next->next->num)
 	{
 		reverse_rotate(stack_a, "rra");
 		if ((*stack_a)->num > (*stack_a)->next->num)
 			swap(*stack_a, "sa");
 	}
-	else if (median < (*stack_a)->num &&
-		median < (*stack_a)->next->next->num)
+	else if (median < (*stack_a)->num && median < (*stack_a)->next->next->num)
 	{
 		if ((*stack_a)->num - (*stack_a)->next->next->num < 0)
 			swap(*stack_a, "sa");
 		else
 			rotate(stack_a, "ra");
 	}
-	else if (median < (*stack_a)->num &&
-		median > (*stack_a)->next->next->num)
+	else if (median < (*stack_a)->num && median > (*stack_a)->next->next->num)
 	{
 		swap(*stack_a, "sa");
 		reverse_rotate(stack_a, "rra");
 	}
 }
 
-void sort_four_numbers(t_stack **stack_a, t_stack **stack_b)
+void	sort_four_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *min_val;
-	int min_val_pos;
+	t_stack	*min_val;
+	int		min_val_pos;
 
 	min_val = find_min_value(*stack_a);
 	min_val_pos = get_position(*stack_a, min_val->index);
@@ -67,10 +64,10 @@ void sort_four_numbers(t_stack **stack_a, t_stack **stack_b)
 	push(stack_b, stack_a, "pa");
 }
 
-void sort_five_numbers(t_stack **stack_a, t_stack **stack_b)
+void	sort_five_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *min_val;
-	int min_val_pos;
+	t_stack	*min_val;
+	int		min_val_pos;
 
 	min_val = find_min_value(*stack_a);
 	min_val_pos = get_position(*stack_a, min_val->index);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list_func.c                                 :+:      :+:    :+:   */
+/*   linked_list_func_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:52:27 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 18:32:23 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/09 22:34:42 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 t_stack	*create_node(int num)
 {
@@ -19,8 +19,8 @@ t_stack	*create_node(int num)
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
-	node->index = -1;
 	node->num = num;
+	node->index = -1;
 	node->next = NULL;
 	return (node);
 }
@@ -42,8 +42,6 @@ void	list_clear(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!stack || !*stack)
-		return ;
 	tmp = *stack;
 	while (tmp)
 	{

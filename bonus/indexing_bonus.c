@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indexing.c                                         :+:      :+:    :+:   */
+/*   indexing_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:38:31 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/06 18:07:48 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/09 22:38:01 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 static int	*create_fake_array(int array_size, t_stack *stack)
 {
@@ -79,19 +79,4 @@ void	indexing_by_order(t_stack *stack)
 		stack = stack->next;
 	}
 	free(fake_arr);
-}
-
-int	get_position(t_stack *stack, int index)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if (stack->index == index)
-			return (i);
-		i++;
-		stack = stack->next;
-	}
-	return (i);
 }
