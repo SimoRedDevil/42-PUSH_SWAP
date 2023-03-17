@@ -6,13 +6,12 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:09:55 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:16 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:46:00 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-/*Swap two first numbers of the following stack*/
 void	swap(t_stack *stack)
 {
 	int	tmp;
@@ -24,8 +23,6 @@ void	swap(t_stack *stack)
 	stack->next->num = tmp;
 }
 
-/*Take the first element at the top of source
-and put it at the top of destination*/
 void	push(t_stack **source, t_stack **destination)
 {
 	t_stack	*tmp;
@@ -47,7 +44,6 @@ void	push(t_stack **source, t_stack **destination)
 	}
 }
 
-/*The first element becomes the last one*/
 void	rotate(t_stack **stack)
 {
 	t_stack	*head;
@@ -64,7 +60,6 @@ void	rotate(t_stack **stack)
 	head->next = NULL;
 }
 
-/*The last element becomes the first one*/
 void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*head;

@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:53:20 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 15:32:47 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:35:39 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static char	*call_strjoin(char *s1, char *s2)
 	return (result);
 }
 
-/*Split the joined arguments by space and return the result*/
 char	**get_splitted_args(int ac, char **av)
 {
 	int		i;
@@ -47,9 +46,9 @@ char	**get_splitted_args(int ac, char **av)
 		i++;
 	}
 	tab = ft_split((const char *)joined, ' ');
-	if (!tab)
-		throw_error();
 	free(joined);
 	joined = NULL;
+	if (!tab)
+		throw_error();
 	return (tab);
 }

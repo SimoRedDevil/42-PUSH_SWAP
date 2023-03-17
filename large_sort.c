@@ -6,21 +6,21 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 09:35:49 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 21:42:43 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:39:22 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	chunk_exist(t_stack *stack, int chunk)
+static t_bool	chunk_exist(t_stack *stack, int chunk)
 {
 	while (stack)
 	{
 		if (stack->index < chunk)
-			return (1);
+			return (TRUE);
 		stack = stack->next;
 	}
-	return (0);
+	return (FALSE);
 }
 
 static void	push_a_to_b_and_rr(t_stack **stack_a, t_stack **stack_b, int chunk)

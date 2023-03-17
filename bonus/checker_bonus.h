@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:43:39 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 18:41:20 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:39:22 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "get_next_line/get_next_line.h"
 
 # define INPUT_FD 0
+
+typedef int	t_bool;
+# define FALSE 0
+# define TRUE 1
 
 # define SA "sa"
 # define SB "sb"
@@ -56,6 +60,7 @@ void	ss(t_stack *stack_a, t_stack *stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
+void	free_mem(char **str, t_stack **stack_a, t_stack **stack_b);
 void	indexing_by_order(t_stack *stack);
 void	check_input_ins(const char *ins);
 

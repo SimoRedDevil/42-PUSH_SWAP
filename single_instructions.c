@@ -6,13 +6,12 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:26:07 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/11 16:08:45 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:44:17 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*Swap two first numbers of the following stack*/
 void	swap(t_stack *stack, char *ins_name)
 {
 	int	tmp;
@@ -25,8 +24,6 @@ void	swap(t_stack *stack, char *ins_name)
 	ft_putendl_fd(ins_name, 1);
 }
 
-/*Take the first element at the top of source
-and put it at the top of destination*/
 void	push(t_stack **source, t_stack **destination, char *ins_name)
 {
 	t_stack	*tmp;
@@ -49,7 +46,6 @@ void	push(t_stack **source, t_stack **destination, char *ins_name)
 	ft_putendl_fd(ins_name, 1);
 }
 
-/*The first element becomes the last one*/
 void	rotate(t_stack **stack, char *ins_name)
 {
 	t_stack	*head;
@@ -67,7 +63,6 @@ void	rotate(t_stack **stack, char *ins_name)
 	ft_putendl_fd(ins_name, 1);
 }
 
-/*The last element becomes the first one*/
 void	reverse_rotate(t_stack **stack, char *ins_name)
 {
 	t_stack	*head;

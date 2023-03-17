@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:42:41 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 18:33:06 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:27:14 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,14 @@ void	free_mem(char **str, t_stack **stack_a, t_stack **stack_b)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 	{
 		free(str[i]);
 		str[i] = NULL;
 		i++;
 	}
 	free(str);
+	str = NULL;
 	list_clear(stack_a);
 	list_clear(stack_b);
 }

@@ -6,15 +6,12 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 20:51:00 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 19:29:21 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:30:24 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*This function join the first param with the second one,
-and inside this function i check if s2 is empty string
-or contains only spaces if yes throw error*/
 static char	*call_strjoin(char *s1, char *s2)
 {
 	int		i;
@@ -35,7 +32,6 @@ static char	*call_strjoin(char *s1, char *s2)
 	return (result);
 }
 
-/*Split the joined arguments by space and return the result*/
 char	**get_splitted_args(int ac, char **av)
 {
 	int		i;
@@ -50,9 +46,8 @@ char	**get_splitted_args(int ac, char **av)
 		i++;
 	}
 	tab = ft_split((const char *)joined, ' ');
+	free(joined);
 	if (!tab)
 		throw_error();
-	free(joined);
-	joined = NULL;
 	return (tab);
 }

@@ -6,7 +6,7 @@
 #    By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:52:19 by mel-yous          #+#    #+#              #
-#    Updated: 2023/03/10 18:52:46 by mel-yous         ###   ########.fr        #
+#    Updated: 2023/03/10 22:46:57 by mel-yous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,3 +29,5 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 re: fclean all
+
+.PHONY: all clean fclean re

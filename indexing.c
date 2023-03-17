@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:38:31 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/06 18:07:48 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:27:29 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	*create_fake_array(int array_size, t_stack *stack)
 
 	fake_arr = (int *)malloc(array_size * sizeof(int));
 	if (!fake_arr)
-		throw_error();
+		return (NULL);
 	i = 0;
 	while (stack)
 	{
@@ -62,6 +62,8 @@ void	indexing_by_order(t_stack *stack)
 
 	stack_size = list_size(stack);
 	fake_arr = create_fake_array(stack_size, stack);
+	if (!fake_arr)
+		throw_error();
 	sort_fake_array(stack_size, fake_arr);
 	i = 0;
 	while (stack)

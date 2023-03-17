@@ -6,7 +6,7 @@
 #    By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 16:23:26 by mel-yous          #+#    #+#              #
-#    Updated: 2023/03/10 20:50:22 by mel-yous         ###   ########.fr        #
+#    Updated: 2023/03/10 22:46:25 by mel-yous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,3 +56,5 @@ fclean:	clean
 	rm -rf $(LIBFT)
 	rm -rf $(GNL)
 re : fclean all
+
+.PHONY: all bonus clean fclean re

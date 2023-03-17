@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:13:08 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/11 16:11:52 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:30:58 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ static char	*call_strjoin(char *s1, char *s2)
 	return (result);
 }
 
-static void	is_sorted(t_stack *stack_a, int original_sz)
+static void	is_sorted(t_stack *stack_a, t_stack *stack_b, int original_sz)
 {
 	int	i;
 	int	sz;
 
 	i = 0;
-	if (!stack_a || original_sz != list_size(stack_a))
+	if (!stack_a || original_sz != list_size(stack_a) || stack_b)
 	{
+		free_mem(NULL, &stack_a, &stack_b);
 		ft_putendl_fd("KO", 1);
 		exit(0);
 	}
@@ -39,12 +40,14 @@ static void	is_sorted(t_stack *stack_a, int original_sz)
 	{
 		if (stack_a->index != i)
 		{
+			free_mem(NULL, &stack_a, &stack_b);
 			ft_putendl_fd("KO", 1);
 			exit(0);
 		}
 		i++;
 		stack_a = stack_a->next;
 	}
+	free_mem(NULL, &stack_a, &stack_b);
 	ft_putendl_fd("OK", 1);
 	exit(0);
 }
@@ -58,7 +61,8 @@ static void	exec_checker(t_stack **stack_a, t_stack **stack_b, const char *buff)
 	stack_a_sz = list_size(*stack_a);
 	do_ins(stack_a, stack_b, spl_ins);
 	indexing_by_order(*stack_a);
-	is_sorted(*stack_a, stack_a_sz);
+	is_sorted(*stack_a, *stack_b, stack_a_sz);
+	free_mem(spl_ins, stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)

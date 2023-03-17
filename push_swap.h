@@ -6,17 +6,20 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:56:07 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/10 19:40:27 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:39:22 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft/libft.h"
-# include <stdio.h>
 
 # define SMALL_CHUNK 5;
-# define BIG_CHUNK 10;
+# define BIG_CHUNK 10
+
+typedef int	t_bool;
+# define FALSE 0
+# define TRUE 1
 
 typedef struct s_stack
 {

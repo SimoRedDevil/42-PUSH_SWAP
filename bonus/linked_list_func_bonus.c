@@ -6,7 +6,7 @@
 /*   By: mel-yous <mel-yous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:52:27 by mel-yous          #+#    #+#             */
-/*   Updated: 2023/03/09 22:34:42 by mel-yous         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:35:49 by mel-yous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	list_clear(t_stack **stack)
 {
 	t_stack	*tmp;
 
+	if (!stack || !*stack)
+		return ;
 	tmp = *stack;
 	while (tmp)
 	{
